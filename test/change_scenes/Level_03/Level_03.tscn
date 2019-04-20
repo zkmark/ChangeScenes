@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://test/change_scenes/Level_03/level_03.png" type="Texture" id=1]
+
+[node name="Level_03" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 196.339, 154.327 )
+texture = ExtResource( 1 )
+
