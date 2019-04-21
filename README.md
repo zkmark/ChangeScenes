@@ -45,33 +45,39 @@ Creamos un json en nuestro script debe tener
 **scene_next**: Sera la siguiente escena a la cual cambiara
 
     var my_obj_json_scenes = [
-    		{
-    			"id": "1",
-    			"scene_current": "res://test/change_scenes/Level_01/Level_01.tscn",
-    			"scene_active": true,
-    			"scene_next": "res://test/change_scenes/Level_02/Level_02.tscn"
-    		},
-    		{
-    			"id": "2",
-    			"scene_current": "res://test/change_scenes/Level_02/Level_02.tscn",
-    			"scene_active": true,
-    			"scene_next": "res://test/change_scenes/Level_03/Level_03.tscn"
-    		},
-    		{
-    			"id": "3",
-    			"scene_current": "res://test/change_scenes/Level_03/Level_03.tscn",
-    			"scene_active": false,
-    			"scene_next": "res://test/change_scenes/Level_01/Level_01.tscn"
-    		}
-    	]
+		{
+			"id": "1",
+			"scene_current": "res://test/change_scenes/Level_01/Level_01.tscn",
+			"scene_active": true,
+			"scene_next": "2"
+		},
+		{
+			"id": "2",
+			"scene_current": "res://test/change_scenes/Level_02/Level_02.tscn",
+			"scene_active": true,
+			"scene_next": "3"
+		},
+		{
+			"id": "3",
+			"scene_current": "res://test/change_scenes/Level_03/Level_03.tscn",
+			"scene_active": true,
+			"scene_next": "1"
+		}
+	]
 
 Ejemplo de uso:
 
     #Podemos cambiar de escena mediante el id, cambiara al scene_current
-    ChangeScenes.change_next_scene_by_json('2')
-    #Podemos cambiar a la siguiente escena mediante el id,cambiara al scene_next
     ChangeScenes.change_next_scene_by_json('1')
-    
+    #Podemos cambiar a la siguiente escena mediante el id,cambiara al scene_next
+    ChangeScenes.change_current_scene_by_json('3')
+    #Podemos cambiar a la siguiente escena mediante el id actual,cambiara al scene_next
+    ChangeScenes.change_next_scene_by_json(ChangeScenes.get_the_json_current_scene().id)
+    #Cambia si es active la siguiente escena
+    if ChangeScenes.get_the_json_scene().scene_active == true:
+	ChangeScenes.change_current_scene_by_json(ChangeScenes.get_the_json_scene().id)
+  
+  
 
 ## Obtener y Asignar Escenas Json
 
